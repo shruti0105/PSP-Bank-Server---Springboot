@@ -22,7 +22,7 @@ public class DatabasePWHashServiceImpl implements DatabasePWHashService {
             //convert the byte array in to Hex String format
             StringBuffer hexData = new StringBuffer();
             for (int i = 0; i < byteArray.length; i++) {
-                hexData.append(Integer.toHexString(0xFF & byteArray[i]));
+                hexData.append(String.format("%02x", byteArray[i]));
             }
             String hashedDecryptedPassword = hexData.toString();
             return hashedDecryptedPassword;
